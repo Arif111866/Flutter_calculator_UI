@@ -9,7 +9,7 @@ class CalculatorApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Calculator App',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
       home: CalculatorScreen(),
     );
   }
@@ -19,21 +19,28 @@ class CalculatorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Calculator')),
+      appBar: AppBar(title: Text('My First Calculator')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text(
-              '123 + 456', // Display the ongoing calculation or result here
+              'Input field', // Display the ongoing calculation or result here
               style: TextStyle(fontSize: 24),
             ),
             SizedBox(height: 20),
-            Text(
-              '579', // Display the current input here
-              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
-            ),
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold ,),
+              textAlign: TextAlign.end,
+              readOnly: true,
+              controller: TextEditingController(text: 'give me input'), // Replace '579' with your current input
+            )
+            ,
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
